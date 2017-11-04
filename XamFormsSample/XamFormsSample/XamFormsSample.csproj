@@ -17,5 +17,9 @@
     <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     <EmbeddedResource Include="**\*.xaml" SubType="Designer" Generator="MSBuild:UpdateDesignTimeXaml" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\MqttTest.Data\MqttTest.Data.csproj" />
+  </ItemGroup>
 
 </Project>

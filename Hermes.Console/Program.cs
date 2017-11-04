@@ -8,6 +8,7 @@ namespace Hermes.Console
         static void Main(string[] args)
         {
             System.Console.WriteLine("Hello jeffa World! Testing Xamarin hermes mqtt client");
+            System.Console.WriteLine("Look in the Debug window...");
             var hermes = new MqttDataServices();
             hermes.Connect();
             System.Console.ReadKey();

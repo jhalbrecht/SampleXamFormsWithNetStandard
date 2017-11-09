@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Mqtt;
 using System.Text;
+using MqttTest.Data.Model;
+using Xamarin.Forms;
 
 namespace MqttTest.Data.Services
 {
@@ -24,6 +26,12 @@ namespace MqttTest.Data.Services
                 {
                     var data = Encoding.UTF8.GetString(message.Payload);
                     Debug.WriteLine($"Message Received; {data}");
+                    var msg = new MqttMessage
+                    {
+                        Topic = message.Topic,
+                        Payload = data
+                    };
+                    //MessagingCenter.Send<XamFormsSample.ViewModels.MainPageViewModel>(this, "Hi");
                 });
             }
             catch (Exception e)

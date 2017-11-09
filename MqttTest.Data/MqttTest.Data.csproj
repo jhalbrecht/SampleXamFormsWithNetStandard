@@ -8,4 +8,10 @@
     <PackageReference Include="System.Net.Mqtt" Version="0.4.9-experimental" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\..\..\..\.nuget\packages\xamarin.forms\2.3.4.231\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

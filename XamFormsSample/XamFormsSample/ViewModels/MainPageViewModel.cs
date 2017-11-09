@@ -20,7 +20,6 @@ namespace XamFormsSample.ViewModels
             //});
 
             Messenger.Default.Register<MqttMessage>(this, HandleMqttMessage);
-
         }
         public string Another { get; set; } = "This is from the Main Page View Model";
 
@@ -30,7 +29,10 @@ namespace XamFormsSample.ViewModels
             if (!obj.Payload.Contains("exit"))
             {
                 Debug.WriteLine($"In MainPageViewModel HandleMqttMessage, Topic {obj.Topic}, Payload {obj.Payload}");
-                MqttMessages.Add(obj);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    MqttMessages.Add(obj);
+                });
             }
         }
     }

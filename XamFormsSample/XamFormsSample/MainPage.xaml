@@ -9,24 +9,45 @@
         <vm:MainPageViewModel />
     </ContentPage.BindingContext>
 
-    <Grid>
+    <Grid Padding="5">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label Text="Welcome to Xamarin Forms!"
+
+        <!--<Label Text="Welcome to Xamarin Forms!"
                VerticalOptions="Center"
                HorizontalOptions="Center" />
 
         <Label Grid.Row="1"
-               Text="With Xamarin hermes mqtt" />
+               Text="With Xamarin hermes mqtt" />-->
 
-        <Label Grid.Row="2"
+        <Label Grid.Row="0"
+               FontSize="15"
                Text="{Binding Another}" />
 
+        <ListView Grid.Row="1" x:Name="MqttMessagesListView"
+                  ItemsSource="{Binding MqttMessages}"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="true">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Topic}"
+                                   LineBreakMode="NoWrap"
+                                   FontSize="13" />
+                            <Label Text="{Binding Payload}"
+                                   LineBreakMode="NoWrap"
+                                   FontSize="16" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
-
-
 </ContentPage>

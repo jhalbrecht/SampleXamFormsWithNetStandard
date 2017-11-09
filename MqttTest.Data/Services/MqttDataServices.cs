@@ -11,8 +11,10 @@ namespace MqttTest.Data.Services
 {
     public class MqttDataServices
     {
-        const string topic = "test/chat/message";
-        const string host = "192.168.1.222";
+        //  mosquitto_pub -h test.mosquitto.org -t test/xamarin/hermes/mqtt/chat/message -m "howdy from mosquitto_pub"
+        //  mosquitto_sub -h test.mosquitto.org -t "test/xamarin/hermes/mqtt/chat/message"
+        const string topic = "test/xamarin/hermes/mqtt/chat/message";
+        const string host = "test.mosquitto.org";
 
         public void Connect()
         {

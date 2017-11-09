@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Net.Mqtt" Version="0.4.9-experimental" />
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.0.1-alpha" />
   </ItemGroup>
 
   <ItemGroup>

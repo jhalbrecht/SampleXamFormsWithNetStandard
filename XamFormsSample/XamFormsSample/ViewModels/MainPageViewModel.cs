@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
+using GalaSoft.MvvmLight.Messaging;
 using MqttTest.Data.Model;
 using MqttTest.Data.Services;
 using Xamarin.Forms;
@@ -17,11 +19,19 @@ namespace XamFormsSample.ViewModels
             //    // using the 'arg' parameter which is a string
             //});
 
-        }
+            Messenger.Default.Register<MqttMessage>(this, HandleMqttMessage);
 
+        }
         public string Another { get; set; } = "This is from the Main Page View Model";
 
         public ObservableCollection<MqttMessage> MqttMessages { get; set; } = new ObservableCollection<MqttMessage>();
-
+        private void HandleMqttMessage(MqttMessage obj)
+        {
+            if (!obj.Payload.Contains("exit"))
+            {
+                Debug.WriteLine($"In MainPageViewModel HandleMqttMessage, Topic {obj.Topic}, Payload {obj.Payload}");
+                MqttMessages.Add(obj);
+            }
+        }
     }
 }

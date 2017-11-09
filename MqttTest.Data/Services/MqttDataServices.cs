@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Mqtt;
 using System.Text;
+using GalaSoft.MvvmLight.Messaging;
 using MqttTest.Data.Model;
 using Xamarin.Forms;
 
@@ -32,6 +33,9 @@ namespace MqttTest.Data.Services
                         Payload = data
                     };
                     //MessagingCenter.Send<XamFormsSample.ViewModels.MainPageViewModel>(this, "Hi");
+
+                    // TODO get nuget fixed....
+                    Messenger.Default.Send<MqttMessage>(msg);
                 });
             }
             catch (Exception e)
